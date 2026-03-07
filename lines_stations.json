@@ -1,0 +1,44 @@
+{
+  "C1": [
+    "MADRID-AEROPUERTO T4",
+    "VALDEBEBAS",
+    "FUENTE DE LA MORA",
+    "MADRID-CHAMARTÍN-CLARA CAMPOAMOR"
+  ],
+  "C2": [
+    "GUADALAJARA",
+    "AZUQUECA",
+    "MECO",
+    "ALCALÁ DE HENARES-UNIVERSIDAD",
+    "ALCALÁ DE HENARES",
+    "ALCALÁ DE HENARES MONUMENTAL",
+    "LA GARENA",
+    "SOTO DEL HENARES",
+    "TORREJÓN DE ARDOZ",
+    "SAN FERNANDO DE HENARES",
+    "COSLADA",
+    "VICÁLVARO",
+    "SANTA EUGENIA",
+    "VALLECAS",
+    "EL POZO",
+    "ASAMBLEA DE MADRID-ENTREVÍAS",
+    "MADRID-ATOCHA CERCANÍAS",
+    "MADRID-PUERTA DE ATOCHA-ALMUDENA GRANDES",
+    "MADRID - ATOCHA CERCANÍAS",
+    "MADRID-RECOLETOS",
+    "MADRID-NUEVOS MINISTERIOS",
+    "MADRID-CHAMARTÍN-CLARA CAMPOAMOR"
+  ],
+  "C3": [
+    "ARANJUEZ",
+    "ARANJUEZ-MOTÍN",
+    "ARANJUEZ-FRESA", //vVALDEMORO and CIEMPOZUELOS are missing
+
+    "Ciempozuelos",
+    "Valdemoro",
+    "Getafe",
+    "Atocha",
+    "Sol",
+    "Chamartín"
+  ]
+}
