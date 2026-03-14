@@ -6,7 +6,7 @@
 #    By: rortiz <rortiz@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/15 00:17:17 by rortiz            #+#    #+#              #
-#    Updated: 2026/03/15 01:55:14 by rortiz           ###   ########.fr        #
+#    Updated: 2026/03/15 04:37:21 by rortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ def extract_vehicle_data(feed, station_ids):
             status_name = gtfs_realtime_pb2.VehiclePosition.VehicleStopStatus.Name(
                 v.current_status)
             vehicle_data = {
+                "line": v.vehicle.label[0:2] if v.vehicle.label[2] == '-' else v.vehicle.label[0:3],
                 "label" : v.vehicle.label if v.vehicle.label else None,
                 "vehicle_id": v.vehicle.id if v.vehicle.id else None,
                 "trip_id": v.trip.trip_id if v.trip else None,
@@ -72,8 +73,6 @@ def extract_vehicle_data(feed, station_ids):
 
     return vehicles
 
-import sqlite3
-
 def update_vehicle_positions(vehicles):
 
     conn = sqlite3.connect("../databases/cercanias.db")
@@ -86,8 +85,8 @@ def update_vehicle_positions(vehicles):
     for v in vehicles:
         cursor.execute("""
             INSERT INTO vehicle_positions
-            (vehicle_id, trip_id, stop_id, latitude, longitude, status, timestamp, label)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            (vehicle_id, trip_id, stop_id, latitude, longitude, status, timestamp, label, line)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             v["vehicle_id"],
             v["trip_id"],
@@ -96,7 +95,8 @@ def update_vehicle_positions(vehicles):
             v["longitude"],
             v["status"],
             v["timestamp"],
-            v["label"]
+            v["label"],
+            v["line"]
         ))
 
     conn.commit()

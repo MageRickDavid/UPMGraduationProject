@@ -6,7 +6,7 @@
 #    By: rortiz <rortiz@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/15 00:44:51 by rortiz            #+#    #+#              #
-#    Updated: 2026/03/15 01:52:48 by rortiz           ###   ########.fr        #
+#    Updated: 2026/03/15 03:21:31 by rortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS vehicle_positions (
     status TEXT,
     timestamp TEXT,
     label TEXT,
+    line TEXT
 )
 """)
 

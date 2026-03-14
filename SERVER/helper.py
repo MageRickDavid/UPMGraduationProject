@@ -6,7 +6,7 @@
 #    By: rortiz <rortiz@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/11 22:59:51 by rortiz            #+#    #+#              #
-#    Updated: 2026/03/15 00:23:13 by rortiz           ###   ########.fr        #
+#    Updated: 2026/03/15 04:37:37 by rortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ import sqlite3
 from collector import *
 import asyncio
 import json
+import math
 
 
 columns = "name, station_id"
@@ -38,4 +39,20 @@ def get_lines(station_name):
     conn.close()
     return results
 
+def haversine(lat1, lon1, lat2, lon2):
 
+    R = 6371000  # Earth radius in meters
+
+    lat1 = math.radians(lat1)
+    lat2 = math.radians(lat2)
+
+    dlat = lat2 - lat1
+    dlon = math.radians(lon2 - lon1)
+
+    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
+
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+
+    distance = R * c
+
+    return distance
