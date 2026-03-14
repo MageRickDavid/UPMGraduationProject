@@ -6,11 +6,15 @@
 #    By: rortiz <rortiz@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/11 22:59:51 by rortiz            #+#    #+#              #
-#    Updated: 2026/03/11 23:32:54 by rortiz           ###   ########.fr        #
+#    Updated: 2026/03/15 00:23:13 by rortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 import sqlite3
+from collector import *
+import asyncio
+import json
+
 
 columns = "name, station_id"
 def find_station(station_name):
@@ -33,4 +37,5 @@ def get_lines(station_name):
     results = cursor.fetchall()
     conn.close()
     return results
+
 
